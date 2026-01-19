@@ -1,4 +1,4 @@
-markdown# PitchIn
+PitchIn
 
 An iOS event planning app that helps groups coordinate events and manage item contributions.
 

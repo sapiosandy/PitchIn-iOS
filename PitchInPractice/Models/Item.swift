@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct Item: Identifiable {
-    let id: UUID = UUID()
+struct Item: Identifiable, Codable  {
+    let id: UUID
     var name: String
     var isClaimed: Bool = false
+    
+    init(name: String, isClaimed: Bool = false) {
+        self.id = UUID()
+        self.name = name
+        self.isClaimed = isClaimed
+    }
 }

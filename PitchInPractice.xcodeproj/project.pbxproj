@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AFB786512F217F34002FB432 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB786502F217F34002FB432 /* PersistenceManager.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AFC74C492E9A05970068CF75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AFB786502F217F34002FB432 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		AFC74C3B2E9A05950068CF75 /* PitchInPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchInPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC74C482E9A05970068CF75 /* PitchInPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchInPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC74C522E9A05970068CF75 /* PitchInPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchInPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFB7864F2F217EF9002FB432 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AFB786502F217F34002FB432 /* PersistenceManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AFC74C322E9A05950068CF75 = {
 			isa = PBXGroup;
 			children = (
+				AFB7864F2F217EF9002FB432 /* Services */,
 				AFC74C3D2E9A05950068CF75 /* PitchInPractice */,
 				AFC74C4B2E9A05970068CF75 /* PitchInPracticeTests */,
 				AFC74C552E9A05970068CF75 /* PitchInPracticeUITests */,
@@ -236,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB786512F217F34002FB432 /* PersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

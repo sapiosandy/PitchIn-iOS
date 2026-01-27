@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct EventDetailsView: View {
-    @ObservedObject var viewModel: EventDetailViewModel
+    @ObservedObject var viewModel: EventDetailsViewModel
     @State private var newItemTitle: String = ""
 
     var body: some View {

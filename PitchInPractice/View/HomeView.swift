@@ -19,7 +19,7 @@ struct HomeView: View {
                 ForEach(viewModel.events) { event in
                     NavigationLink(
                         destination: EventDetailsView(
-                                viewModel: EventDetailViewModel(event: event)
+                                viewModel: EventDetailsViewModel(event: event)
                             )
                         ) {
                         VStack(alignment: .leading) {

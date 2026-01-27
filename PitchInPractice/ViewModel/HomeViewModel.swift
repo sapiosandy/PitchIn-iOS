@@ -28,6 +28,11 @@ final class HomeViewModel: ObservableObject {
         print ("init() was called - loaded \(events.count) events")
         }
     
+    func saveEvents() {
+        PersistenceManager.shared.saveEvents(events)
+        print("Saved events")
+    }
+    
     //CREATE
     func addEvent() {
         let trimmedName = newEventName.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -39,7 +44,7 @@ final class HomeViewModel: ObservableObject {
         events.append(newEvent)
         
         //Every time user creates an event, save the updated array to disk
-        PersistenceManager.shared.saveEvents(events)
+        saveEvents()
         
         // Test line
         print("🔵 addEvent() was called - should have saved")
@@ -57,8 +62,7 @@ final class HomeViewModel: ObservableObject {
             events[index].name = name
             events[index].location = location
             events[index].date = date
-            
-            PersistenceManager.shared.saveEvents(events)
+            saveEvents()
         }
     }
     
@@ -66,6 +70,6 @@ final class HomeViewModel: ObservableObject {
         events.remove(atOffsets: offsets)
         
         // When user deletes an event, save the updated array
-        PersistenceManager.shared.saveEvents(events)
+        saveEvents()
     }
 }

@@ -34,6 +34,16 @@
 		AFC74C522E9A05970068CF75 /* PitchInPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchInPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AFE2A79E2F311D9700C09AAA /* Exceptions for "Repositories " folder in "PitchInPractice" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				EventRepository.swift,
+			);
+			target = AFC74C3A2E9A05950068CF75 /* PitchInPractice */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AFC74C3D2E9A05950068CF75 /* PitchInPractice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -48,6 +58,14 @@
 		AFC74C552E9A05970068CF75 /* PitchInPracticeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = PitchInPracticeUITests;
+			sourceTree = "<group>";
+		};
+		AFE2A79A2F311D7200C09AAA /* Repositories  */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AFE2A79E2F311D9700C09AAA /* Exceptions for "Repositories " folder in "PitchInPractice" target */,
+			);
+			path = "Repositories ";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,6 +106,7 @@
 		AFC74C322E9A05950068CF75 = {
 			isa = PBXGroup;
 			children = (
+				AFE2A7992F311D5D00C09AAA /* Domain */,
 				AFB7864F2F217EF9002FB432 /* Services */,
 				AFC74C3D2E9A05950068CF75 /* PitchInPractice */,
 				AFC74C4B2E9A05970068CF75 /* PitchInPracticeTests */,
@@ -104,6 +123,14 @@
 				AFC74C522E9A05970068CF75 /* PitchInPracticeUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AFE2A7992F311D5D00C09AAA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AFE2A79A2F311D7200C09AAA /* Repositories  */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

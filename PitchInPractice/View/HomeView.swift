@@ -50,14 +50,12 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         TextField("Event name", text: $viewModel.newEventName)
                             .textFieldStyle(.roundedBorder)
-                        
                         TextField("Location", text: $viewModel.newEventLocation)
                             .textFieldStyle(.roundedBorder)
                         DatePicker("Date", selection:$viewModel.newEventDate, displayedComponents: [ .date, .hourAndMinute])
                     }
                     .padding()
                     .background(.ultraThinMaterial)
-            
             }
         }
     }

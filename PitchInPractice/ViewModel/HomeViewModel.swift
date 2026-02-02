@@ -5,28 +5,21 @@
 //  Created by Sandra Gomez on 10/10/25.
 //
 
-import Foundation
 import Combine
 import SwiftUI
 
 final class HomeViewModel: ObservableObject {
-    //READ
-    @Published var events: [Event] = []
     
-    // TEMP STATE FOR FORM INPUT
+    @Published var events: [Event] = []
     @Published var newEventName: String = ""
     @Published var newEventLocation: String = ""
     @Published var newEventDate: Date = Date()
     
     init() {
-        
-            // Load saved events when ViewModel is created
-            // When HomeView appears (app opens), it loads any saved events from disk
-            events = PersistenceManager.shared.loadEvents()
-        
-            // Add this test line
+        events = PersistenceManager.shared.loadEvents()
+        // Add this test line
         print ("init() was called - loaded \(events.count) events")
-        }
+    }
     
     func saveEvents() {
         PersistenceManager.shared.saveEvents(events)
@@ -37,19 +30,12 @@ final class HomeViewModel: ObservableObject {
     func addEvent() {
         let trimmedName = newEventName.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedLocation = newEventLocation.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         guard !trimmedName.isEmpty, !trimmedLocation.isEmpty else { return }
-        
         let newEvent = Event(name: trimmedName, date: newEventDate, location: trimmedLocation, items: [])
         events.append(newEvent)
-        
-        //Every time user creates an event, save the updated array to disk
         saveEvents()
-        
         // Test line
         print("🔵 addEvent() was called - should have saved")
-        
-        // Clear form inputs
         newEventName = ""
         newEventLocation = ""
         newEventDate = Date()
@@ -68,8 +54,6 @@ final class HomeViewModel: ObservableObject {
     
     func deleteEvent(at offsets: IndexSet) {
         events.remove(atOffsets: offsets)
-        
-        // When user deletes an event, save the updated array
         saveEvents()
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel() //Connects the view to the view model
+    @StateObject var viewModel = HomeViewModel(repository: LocalEventRepository())
     
     var body: some View {
         NavigationView {
@@ -40,7 +40,9 @@ struct HomeView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Add") {
-                            viewModel.addEvent() // CREATE
+                            Task {
+                                await viewModel.addEvent()
+                            }
                         }
                         .disabled(viewModel.newEventName.isEmpty || viewModel.newEventLocation.isEmpty)
                     }
@@ -54,6 +56,7 @@ struct HomeView: View {
                             .textFieldStyle(.roundedBorder)
                         DatePicker("Date", selection:$viewModel.newEventDate, displayedComponents: [ .date, .hourAndMinute])
                     }
+                    .task { await viewModel.loadEvents()}
                     .padding()
                     .background(.ultraThinMaterial)
             }

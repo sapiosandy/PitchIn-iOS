@@ -25,7 +25,7 @@ protocol EventRepository {
     // Delete and event by ID
     // - Parameter id: UUID of event to delete
     // - Throws: RepositoryError if the deletion fails
-    func deleteEvent(id: UUID) async throws 
+    func deleteEvent(id: UUID) async throws
 }
 
 // Errors that can occur during repository operations

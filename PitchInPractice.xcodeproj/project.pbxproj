@@ -39,6 +39,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				EventRepository.swift,
+				LocalEventRepository.swift,
 			);
 			target = AFC74C3A2E9A05950068CF75 /* PitchInPractice */;
 		};

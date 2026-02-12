@@ -15,25 +15,37 @@ final class HomeViewModel: ObservableObject {
     @Published var newEventLocation: String = ""
     @Published var newEventDate: Date = Date()
     
-    init() {
-        events = PersistenceManager.shared.loadEvents()
-        // Add this test line
-        print ("init() was called - loaded \(events.count) events")
+    private let repository: EventRepository
+    
+    init(repository: EventRepository) {
+        self.repository = repository
     }
     
-    func saveEvents() {
-        PersistenceManager.shared.saveEvents(events)
-        print("Saved events")
+    func loadEvents() async {
+        do {
+            events = try await repository.loadEvents()
+            print("✅ Loaded \(events.count) events")
+        } catch {
+            print ("❌ Failed to load: \(error.localizedDescription)")
+        }
     }
     
-    //CREATE
-    func addEvent() {
+    func saveEvents() async {
+        do {
+            try await repository.saveEvents(events)
+            print("Saved events")
+        } catch {
+            print("❌ Failed to save: \(error.localizedDescription)")
+        }
+    }
+    
+    func addEvent() async {
         let trimmedName = newEventName.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedLocation = newEventLocation.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty, !trimmedLocation.isEmpty else { return }
         let newEvent = Event(name: trimmedName, date: newEventDate, location: trimmedLocation, items: [])
         events.append(newEvent)
-        saveEvents()
+        await saveEvents()
         // Test line
         print("🔵 addEvent() was called - should have saved")
         newEventName = ""
@@ -41,19 +53,21 @@ final class HomeViewModel: ObservableObject {
         newEventDate = Date()
     }
     
-    // UPDATE (Optional)
-    
     func updateEvent( _ event: Event, name: String, location: String, date: Date) {
         if let index = events.firstIndex(where: { $0.id == event.id}) {
             events[index].name = name
             events[index].location = location
             events[index].date = date
-            saveEvents()
+            Task {
+                await saveEvents()
+            }
         }
     }
-    
-    func deleteEvent(at offsets: IndexSet) {
-        events.remove(atOffsets: offsets)
-        saveEvents()
+        func deleteEvent(at offsets: IndexSet) {
+            events.remove(atOffsets: offsets)
+            Task {
+                await saveEvents()
+            }
+        }
     }
-}
+

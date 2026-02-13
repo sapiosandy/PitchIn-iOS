@@ -4,13 +4,12 @@
 //
 //  Created by Sandra Gomez on 10/15/25.
 //
-
 import Foundation
 import SwiftUI
 
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewModel(repository: LocalEventRepository())
+    @State var viewModel = HomeViewModel(repository: LocalEventRepository())
     
     var body: some View {
         NavigationView {

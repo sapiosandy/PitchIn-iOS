@@ -4,16 +4,16 @@
 //
 //  Created by Sandra Gomez on 10/10/25.
 //
-
-import Combine
 import SwiftUI
+import Observation
 
-final class HomeViewModel: ObservableObject {
+@Observable
+final class HomeViewModel {
     
-    @Published var events: [Event] = []
-    @Published var newEventName: String = ""
-    @Published var newEventLocation: String = ""
-    @Published var newEventDate: Date = Date()
+    var events: [Event] = []
+    var newEventName: String = ""
+    var newEventLocation: String = ""
+    var newEventDate: Date = Date()
     
     private let repository: EventRepository
     
@@ -63,11 +63,11 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
-        func deleteEvent(at offsets: IndexSet) {
-            events.remove(atOffsets: offsets)
-            Task {
-                await saveEvents()
-            }
+    func deleteEvent(at offsets: IndexSet) {
+        events.remove(atOffsets: offsets)
+        Task {
+            await saveEvents()
         }
     }
+}
 

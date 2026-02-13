@@ -35,7 +35,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		AFE2A79E2F311D9700C09AAA /* Exceptions for "Repositories " folder in "PitchInPractice" target */ = {
+		AF5D09F92F3E2D790059E783 /* Exceptions for "Repositories " folder in "PitchInPractice" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				EventRepository.swift,
@@ -64,7 +64,7 @@
 		AFE2A79A2F311D7200C09AAA /* Repositories  */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				AFE2A79E2F311D9700C09AAA /* Exceptions for "Repositories " folder in "PitchInPractice" target */,
+				AF5D09F92F3E2D790059E783 /* Exceptions for "Repositories " folder in "PitchInPractice" target */,
 			);
 			path = "Repositories ";
 			sourceTree = "<group>";

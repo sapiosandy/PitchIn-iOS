@@ -6,10 +6,11 @@
 //
 import Foundation
 import SwiftUI
-import Combine
+import Observation
 
-final class EventDetailsViewModel: ObservableObject {
-    @Published var event: Event
+@Observable
+final class EventDetailsViewModel {
+   var event: Event
     
     init(event: Event) {
         self.event = event
